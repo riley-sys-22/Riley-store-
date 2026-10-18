@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover everyday essentials at Riley Store.">
+  <title>Riley Store | Find Your Next Favourite</title>
+  <style>
+    :root{--ink:#171717;--muted:#707070;--paper:#f8f7f4;--accent:#d9ff62;--line:#e8e6e0;--white:#fff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--paper)}
+    button,input{font:inherit}button{cursor:pointer}.announcement{background:var(--ink);color:#fff;text-align:center;padding:10px 14px;font-size:12px;letter-spacing:.08em}
+    header{position:sticky;top:0;z-index:5;background:rgba(248,247,244,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1180px;margin:auto;padding:17px 22px;display:flex;align-items:center;gap:18px}.logo{font-size:22px;font-weight:900;letter-spacing:-1px;text-decoration:none;color:var(--ink);white-space:nowrap}.logo span{color:#658100}
+    .navlinks{display:flex;gap:22px;margin-left:auto}.navlinks a{font-size:13px;color:var(--ink);text-decoration:none}.navright{display:flex;gap:9px;align-items:center}
+    .iconbtn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 13px;font-size:13px}.cartcount{background:var(--accent);border-radius:99px;padding:2px 6px;font-weight:bold;margin-left:4px}
+    main{max-width:1180px;margin:auto;padding:0 22px}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:25px;padding:40px 0 52px;align-items:stretch}
+    .herotext{padding:clamp(25px,5vw,65px);background:var(--accent);border-radius:8px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-height:410px}
+    .eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(42px,6.5vw,78px);line-height:.96;letter-spacing:-.065em;margin:20px 0}.hero p{line-height:1.7;color:#333;max-width:380px;font-size:15px}
+    .primary{background:var(--ink);color:white;border:0;border-radius:99px;padding:14px 21px;font-weight:700;text-decoration:none;display:inline-block;margin-top:12px}.heroart{border-radius:8px;min-height:410px;background:linear-gradient(145deg,#dedbd1,#a9ad9b);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    .sun{position:absolute;width:210px;height:210px;background:#f2d98c;border-radius:50%;right:10%;top:9%}.shape{position:absolute;bottom:-50px;width:70%;height:76%;border-radius:45% 45% 0 0;background:#343c32;transform:rotate(-9deg)}.shape2{position:absolute;bottom:-70px;left:-10%;width:70%;height:60%;border-radius:50% 50% 0 0;background:#6d7964;transform:rotate(18deg)}
+    .artlabel{position:absolute;left:22px;bottom:22px;color:white;font-weight:800;letter-spacing:.12em;font-size:12px;z-index:2}.heroart:after{content:"R";position:absolute;z-index:1;font-weight:900;font-size:clamp(160px,24vw,300px);color:rgba(255,255,255,.14);top:3%;left:22%;letter-spacing:-.1em}
+    .sectionhead{display:flex;justify-content:space-between;align-items:end;gap:16px;margin:8px 0 22px}.sectionhead h2{font-size:clamp(27px,4vw,40px);letter-spacing:-.05em;margin:0}.sectionhead p{color:var(--muted);font-size:13px;margin:7px 0 0}
+    .tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}.search{flex:1;min-width:180px;border:1px solid var(--line);background:white;border-radius:99px;padding:12px 16px;outline:none}.filter{border:1px solid var(--line);background:white;border-radius:99px;padding:11px 15px;font-size:13px}.filter.active{background:var(--ink);color:white}
+    .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.product{min-width:0}.productart{aspect-ratio:4/4.7;border-radius:7px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.productart .emoji{font-size:clamp(48px,7vw,85px);filter:drop-shadow(0 10px 10px #0002);transition:transform .25s}.product:hover .emoji{transform:scale(1.08) rotate(-3deg)}.tag{position:absolute;top:12px;left:12px;background:white;border-radius:99px;padding:6px 9px;font-size:10px;font-weight:800}.productmeta{padding:12px 2px}.productmeta h3{font-size:14px;margin:0 0 7px}.productmeta p{font-size:12px;color:var(--muted);margin:0 0 10px}.productbottom{display:flex;align-items:center;justify-content:space-between;gap:8px}.price{font-size:14px;font-weight:800}.add{border:1px solid var(--ink);background:transparent;border-radius:99px;padding:8px 10px;font-size:11px;font-weight:700}.add:hover{background:var(--ink);color:white}
+    .story{margin:70px 0;background:#eae8e0;padding:clamp(25px,5vw,55px);display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;border-radius:8px}.story h2{font-size:clamp(30px,4vw,48px);letter-spacing:-.05em;margin:14px 0}.story p{line-height:1.8;color:#505050;font-size:14px}.storybox{background:#d9ff62;min-height:190px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:clamp(30px,6vw,70px);font-weight:900;letter-spacing:-.08em}
+    footer{background:var(--ink);color:white;padding:35px 22px}.footinner{max-width:1180px;margin:auto;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footinner p{color:#c3c3c3;font-size:12px;line-height:1.7}.footinner a{color:white}
+    .cartpanel{position:fixed;right:0;top:0;height:100dvh;width:min(410px,100%);background:white;z-index:20;box-shadow:-20px 0 70px #0002;padding:22px;transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column}.cartpanel.open{transform:translateX(0)}.carthead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:15px}.carthead h2{margin:0}.close{border:0;background:#f1f1ef;border-radius:50%;width:38px;height:38px}.cartitems{overflow:auto;flex:1;padding:10px 0}.cartitem{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.cartemoji{width:60px;height:60px;border-radius:6px;display:grid;place-items:center;font-size:28px}.cartitem strong{font-size:13px}.cartitem small{display:block;color:var(--muted);margin-top:5px}.qty{display:flex;gap:10px;align-items:center;margin-top:8px}.qty button{border:1px solid var(--line);background:white;border-radius:5px;padding:3px 9px}.cartfoot{border-top:1px solid var(--line);padding-top:15px}.totalrow{display:flex;justify-content:space-between;font-weight:800}.checkout{display:block;text-align:center;background:#198754;color:white;text-decoration:none;border-radius:99px;padding:14px;margin-top:15px;font-weight:800}.note{font-size:11px;color:var(--muted);line-height:1.5}.empty{color:var(--muted);padding:25px 0;font-size:14px}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,100px);background:#171717;color:white;padding:12px 18px;border-radius:99px;z-index:30;font-size:13px;transition:transform .25s}.toast.show{transform:translate(-50%,0)}
+    @media(max-width:760px){.nav{padding:14px}.navlinks{display:none}.hero{grid-template-columns:1fr;padding-top:20px;gap:13px}.herotext{min-height:340px}.heroart{min-height:260px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.story{grid-template-columns:1fr;margin:45px 0}.navright{margin-left:auto}main{padding:0 14px}.sectionhead{align-items:start;flex-direction:column}.announcement{font-size:10px}}
+  </style>
+</head>
+<body>
+  <div class="announcement">WELCOME TO RILEY STORE — EVERYDAY FINDS, BETTER VIBES</div>
+  <header><nav class="nav">
+    <a class="logo" href="#">RILEY<span>.</span></a>
+    <div class="navlinks"><a href="#shop">Shop</a><a href="#about">Our story</a><a href="#contact">Contact</a></div>
+    <div class="navright"><button class="iconbtn" onclick="document.getElementById('shop').scrollIntoView({behavior:'smooth'})">Search ⌕</button><button class="iconbtn" onclick="toggleCart(true)">Bag <span class="cartcount" id="cartcount">0</span></button></div>
+  </nav></header>
+  <main>
+    <section class="hero">
+      <div class="herotext"><div class="eyebrow">The Riley edit / 001</div><h1>Good finds.<br>Great energy.</h1><p>Discover everyday essentials and fresh favourites picked to fit your style. Simple shopping, good vibes.</p><a class="primary" href="#shop">Explore the shop ↗</a></div>
+      <div class="heroart" aria-label="Abstract green and neutral store artwork"><div class="sun"></div><div class="shape2"></div><div class="shape"></div><div class="artlabel">FIND YOUR NEXT FAVOURITE</div></div>
+    </section>
+    <section id="shop">
+      <div class="sectionhead"><div><div class="eyebrow">Curated for you</div><h2>Shop the collection</h2><p>Browse the demo collection below. Replace these with your real products.</p></div></div>
+      <div class="tools"><input class="search" id="search" type="search" placeholder="Search products..." aria-label="Search products"><button class="filter active" data-cat="All">All items</button><button class="filter" data-cat="Style">Style</button><button class="filter" data-cat="Tech">Tech</button><button class="filter" data-cat="Lifestyle">Lifestyle</button></div>
+      <div class="grid" id="products"></div>
+    </section>
+    <section class="story" id="about"><div><div class="eyebrow">A little about us</div><h2>Small details.<br>Big difference.</h2><p>Riley Store is a fresh online-shop concept built around useful finds, clean design and a smooth shopping experience. We’re starting simple and growing with our customers.</p><a class="primary" href="#contact">Get in touch ↗</a></div><div class="storybox">RILEY STORE®</div></section>
+  </main>
+  <footer id="contact"><div class="footinner"><div><a class="logo" href="#">RILEY<span>.</span></a><p>Everyday finds, better vibes.<br>Online shopping made simple.</p></div><div><strong>Questions or orders?</strong><p>Message us on WhatsApp to ask about products,<br>delivery and availability.</p><a id="contactlink" href="#" target="_blank" rel="noopener">Contact Riley Store ↗</a></div><div><p>© <span id="year"></span> Riley Store. All rights reserved.</p><p>Demo store — sample products and prices.</p></div></div></footer>
+  <aside class="cartpanel" id="cartpanel" aria-label="Shopping cart" aria-hidden="true"><div class="carthead"><h2>Your bag</h2><button class="close" onclick="toggleCart(false)" aria-label="Close cart">✕</button></div><div class="cartitems" id="cartitems"></div><div class="cartfoot"><div class="totalrow"><span>Total</span><span id="total">₦0</span></div><a class="checkout" id="checkout" href="#" target="_blank" rel="noopener">Order via WhatsApp</a><p class="note">Demo checkout: the order opens WhatsApp with your cart summary. Add your WhatsApp number in the code before publishing.</p></div></aside>
+  <div class="toast" id="toast">Added to your bag</div>
+  <script>
+    // IMPORTANT: Replace this with your WhatsApp number, including country code, without + or spaces.
+    // Example format for a Nigerian number: 2348012345678
+    const WHATSAPP_NUMBER = "2348012345678";
+    const products = [
+      {id:1,name:"Everyday Cap",category:"Style",price:8500,emoji:"🧢",desc:"Easy style, every day",color:"#e7d7bd",tag:"BESTSELLER"},
+      {id:2,name:"Wireless Headphones",category:"Tech",price:28500,emoji:"🎧",desc:"Your sound, your space",color:"#d8dfd4",tag:"POPULAR"},
+      {id:3,name:"Classic Sneakers",category:"Style",price:32000,emoji:"👟",desc:"Made for the daily move",color:"#e6d8d1",tag:"NEW"},
+      {id:4,name:"Everyday Watch",category:"Style",price:19500,emoji:"⌚",desc:"A clean finishing touch",color:"#d6dce4",tag:""},
+      {id:5,name:"Mini Speaker",category:"Tech",price:16500,emoji:"🔊",desc:"Bring the vibe along",color:"#e5d8a9",tag:""},
+      {id:6,name:"Carry-All Tote",category:"Lifestyle",price:6500,emoji:"👜",desc:"Room for your essentials",color:"#d5e0cf",tag:"EASY PICK"},
+      {id:7,name:"Travel Bottle",category:"Lifestyle",price:5500,emoji:"🧴",desc:"Hydration on the go",color:"#d5dbe1",tag:""},
+      {id:8,name:"Smart Backpack",category:"Lifestyle",price:24000,emoji:"🎒",desc:"Ready for wherever",color:"#d9d0c5",tag:""}
+    ];
+    let cart = [];
+    let activeCategory = "All";
+    const money = n => "₦" + n.toLocaleString("en-NG");
+    function renderProducts(){
+      const q = document.getElementById("search").value.toLowerCase().trim();
+      const shown = products.filter(p => (activeCategory==="All" || p.category===activeCategory) && (p.name.toLowerCase().includes(q)||p.desc.toLowerCase().includes(q)||p.category.toLowerCase().includes(q)));
+      document.getElementById("products").innerHTML = shown.map(p => `<article class="product"><div class="productart" style="background:${p.color}">${p.tag?`<span class="tag">${p.tag}</span>`:""}<span class="emoji">${p.emoji}</span></div><div class="productmeta"><h3>${p.name}</h3><p>${p.desc}</p><div class="productbottom"><span class="price">${money(p.price)}</span><button class="add" onclick="addToCart(${p.id})">+ Add</button></div></div></article>`).join("") || "<p>No products match that search.</p>";
+    }
+    function addToCart(id){const item=cart.find(i=>i.id===id);if(item)item.qty++;else cart.push({id,qty:1});renderCart();showToast("Added to your bag");}
+    function changeQty(id,delta){const item=cart.find(i=>i.id===id);if(!item)return;item.qty+=delta;if(item.qty<=0)cart=cart.filter(i=>i.id!==id);renderCart();}
+    function renderCart(){
+      document.getElementById("cartcount").textContent=cart.reduce((s,i)=>s+i.qty,0);
+      document.getElementById("cartitems").innerHTML=cart.length?cart.map(i=>{const p=products.find(p=>p.id===i.id);return `<div class="cartitem"><div class="cartemoji" style="background:${p.color}">${p.emoji}</div><div style="flex:1"><strong>${p.name}</strong><small>${money(p.price)} each</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${i.qty}</span><button onclick="changeQty(${p.id},1)">+</button></div></div><strong>${money(p.price*i.qty)}</strong></div>`}).join(""):'<div class="empty">Your bag is empty. Add something you love!</div>';
+      const total=cart.reduce((s,i)=>s+products.find(p=>p.id===i.id).price*i.qty,0);
+      document.getElementById("total").textContent=money(total);
+      const lines=cart.map(i=>{const p=products.find(p=>p.id===i.id);return `${i.qty} x ${p.name} - ${money(p.price*i.qty)}`}).join("\n");
+      const msg=`Hello Riley Store! I'd like to place an order:\n${lines}\nTotal: ${money(total)}\nPlease confirm availability and delivery.`;
+      const valid=WHATSAPP_NUMBER!=="2348012345678";
+      document.getElementById("checkout").href=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+      document.getElementById("checkout").style.opacity=valid&&cart.length?"1":".55";
+      document.getElementById("checkout").onclick=(e)=>{if(!valid){e.preventDefault();alert("Before taking orders, replace WHATSAPP_NUMBER in the code with your real WhatsApp number (country code + number, no + or spaces).");}else if(!cart.length){e.preventDefault();alert("Your bag is empty. Add a product first.");}};
+    }
+    function toggleCart(open){const el=document.getElementById("cartpanel");el.classList.toggle("open",open);el.setAttribute("aria-hidden",String(!open));}
+    let toastTimer;function showToast(msg){const t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),1800);}
+    document.getElementById("search").addEventListener("input",renderProducts);
+    document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");activeCategory=b.dataset.cat;renderProducts();}));
+    document.getElementById("contactlink").href=`https://wa.me/${WHATSAPP_NUMBER}`;
+    document.getElementById("year").textContent=new Date().getFullYear();
+    renderProducts();renderCart();
+  </script>
+</body>
+</html>
